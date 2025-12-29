@@ -18,7 +18,7 @@ export default function Sidebar() {
   const firstStateHref = STATES.length > 0 ? `/state/${STATES[0].slug}` : null;
 
   return (
-    <aside className="fixed right-0 top-0 h-full w-[320px] border-l border-neutral-200 bg-neutral-100 p-6 overflow-y-auto">
+    <aside className="fixed left-0 top-0 h-full w-[320px] border-r border-neutral-200 bg-neutral-100 p-6 overflow-y-auto">
       <nav className="flex flex-col gap-1">
         {PRIMARY_NAV.map((item) => {
           const isActive = pathname === item.href;
