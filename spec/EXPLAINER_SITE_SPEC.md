@@ -338,3 +338,6 @@ Nothing feels rushed, optimized, or performative
 The whiteboard feels like a map, not a pitch
 
 Anything beyond this is scope creep.
+
+Decision Log:
+- Added placeholder pages: /process, /audio, /next-steps

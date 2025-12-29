@@ -15,6 +15,7 @@ export default function Sidebar() {
   const pathname = usePathname();
   const isStatePage = pathname.startsWith("/state/");
   const currentSlug = isStatePage ? pathname.split("/state/")[1] : null;
+  const firstStateHref = STATES.length > 0 ? `/state/${STATES[0].slug}` : null;
 
   return (
     <aside className="fixed right-0 top-0 h-full w-[320px] border-l border-neutral-200 bg-neutral-100 p-6 overflow-y-auto">
@@ -33,6 +34,16 @@ export default function Sidebar() {
             </Link>
           );
         })}
+        {firstStateHref && (
+          <Link
+            href={firstStateHref}
+            className={`block px-3 py-2 text-sm transition-colors hover:bg-neutral-200 ${
+              isStatePage ? "bg-neutral-200 font-medium" : ""
+            }`}
+          >
+            States
+          </Link>
+        )}
       </nav>
 
       {isStatePage && (
