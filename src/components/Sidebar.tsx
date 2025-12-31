@@ -7,6 +7,7 @@ import { STATES } from "@/data/states";
 const PRIMARY_NAV = [
   { label: "System Overview", href: "/system" },
   { label: "Experience States", href: "/system?focus=states#states" },
+  { label: "Sequence", href: "/sequence" },
   { label: "Process Artifacts", href: "/process" },
   { label: "Audio Reflection", href: "/audio" },
   { label: "Open Questions", href: "/next-steps" },
