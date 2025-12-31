@@ -4,14 +4,14 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const PRODUCT_NAV = [
+  { label: "Sender Journey", href: "/sequence" },
+  { label: "Recipient Journey", href: "/journey/sender" },
   { label: "Overview", href: "/system" },
-  { label: "Recipient Journey", href: "/sequence" },
-  { label: "Sender Journey", href: "/journey/sender" },
   { label: "Design Principles", href: "/design-principles" },
 ];
 
 const BEHIND_SCENES_NAV = [
-  { label: "How I built this", href: "/process/whiteboard-wireframes" },
+  { label: "How I built this", href: "/process/grok-brainstorm" },
   { label: "Audio", href: "/audio" },
 ];
 
