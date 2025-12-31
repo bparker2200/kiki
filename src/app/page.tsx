@@ -1,47 +1,248 @@
+"use client";
+
 import Image from "next/image";
-import Link from "next/link";
+import { useState, useEffect, useRef } from "react";
+import { useRouter } from "next/navigation";
 import { STATES } from "@/data/states";
 
-export default function Home() {
-  const debugHotspots = process.env.NEXT_PUBLIC_DEBUG_HOTSPOTS === "1";
+/**
+ * Narrative affordance for the home page.
+ * Not a reusable button. Do not reuse elsewhere.
+ */
+function HeartAffordance({ onClick }: { onClick: () => void }) {
+  const [isPressed, setIsPressed] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const prefersReducedMotion = mounted && typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  const handleMouseDown = () => {
+    setIsPressed(true);
+  };
+
+  const handleMouseUp = () => {
+    setIsPressed(false);
+  };
+
+  const handleMouseLeave = () => {
+    setIsPressed(false);
+    setIsHovered(false);
+  };
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
 
   return (
-    <div className="flex min-h-screen justify-center p-8">
-      <div className="relative w-full max-w-[1200px]">
-        <Image
-          src="/whiteboard.png"
-          alt="Main Wireframe"
-          width={1200}
-          height={2000}
-          priority
-          className="w-full h-auto block"
+    <button
+      onClick={onClick}
+      onMouseDown={handleMouseDown}
+      onMouseUp={handleMouseUp}
+      onMouseLeave={handleMouseLeave}
+      onMouseEnter={handleMouseEnter}
+      className="absolute cursor-pointer focus:outline-none"
+      style={{
+        left: "68.1%",
+        top: "63.5%",
+        width: "2.3%",
+        transform: "translate(-50%, -50%)",
+        background: "none",
+        border: "none",
+        padding: 0,
+      }}
+      aria-label="Continue"
+    >
+      {/* Deep shadow layer - darker, offset more */}
+      <svg
+        className="absolute top-0 left-0 w-full h-full"
+        viewBox="0 0 100 95"
+        xmlns="http://www.w3.org/2000/svg"
+        style={{
+          top: prefersReducedMotion
+            ? "12px"
+            : isPressed
+            ? "8px"
+            : isHovered
+            ? "11px"
+            : "12px",
+          left: prefersReducedMotion
+            ? "10px"
+            : isPressed
+            ? "6px"
+            : isHovered
+            ? "9px"
+            : "10px",
+          transition: prefersReducedMotion
+            ? "none"
+            : isPressed
+            ? "top 0.1s cubic-bezier(0.4, 0, 0.2, 1), left 0.1s cubic-bezier(0.4, 0, 0.2, 1), fill 0.1s cubic-bezier(0.4, 0, 0.2, 1)"
+            : "top 0.2s cubic-bezier(0.34, 1.2, 0.64, 1), left 0.2s cubic-bezier(0.34, 1.2, 0.64, 1), fill 0.2s cubic-bezier(0.34, 1.2, 0.64, 1)",
+        }}
+      >
+        <path
+          d="M48 89 C46 87, 21 65, 12 52 C3 39, -2 28, 4 18 C9 9, 19 5, 28 5 C37 5, 44 10, 49 17 C54 10, 61 4, 71 5 C81 6, 91 12, 94 22 C98 32, 93 45, 83 58 C73 71, 52 87, 48 89Z"
+          fill={isPressed && !prefersReducedMotion ? "#3a1515" : "#4a1e1e"}
+          stroke="none"
         />
-        {STATES.map((state) => (
-          <Link
-            key={state.slug}
-            href={`/state/${state.slug}`}
-            className="absolute cursor-pointer group"
-            style={{
-              left: `${state.hotspot.x}%`,
-              top: `${state.hotspot.y}%`,
-              width: `${state.hotspot.w}%`,
-              height: `${state.hotspot.h}%`,
-            }}
-          >
-            {debugHotspots && (
-              <span className="pointer-events-none absolute inset-0 border border-yellow-700/40 bg-yellow-300/10 text-[10px] text-yellow-900/80 flex items-start">
-                <span className="m-1 px-1 rounded bg-white/80">{state.label}</span>
-              </span>
-            )}
-            <span
-              className="absolute inset-0 bg-yellow-300 opacity-0 group-hover:opacity-50 transition-opacity"
-              style={{
-                borderRadius: "2px",
-                transform: "skewX(-1deg) rotate(-0.5deg)",
-              }}
-            />
-          </Link>
-        ))}
+      </svg>
+
+      {/* Main heart - wobbly, sketchy, imperfect */}
+      <svg
+        className="relative w-full h-full"
+        viewBox="0 0 100 95"
+        xmlns="http://www.w3.org/2000/svg"
+        style={{
+          transform: prefersReducedMotion
+            ? "none"
+            : isPressed
+            ? "translate(4px, 4px)"
+            : isHovered
+            ? "translate(-0.5px, -0.5px)"
+            : "none",
+          transition: prefersReducedMotion
+            ? "none"
+            : isPressed
+            ? "transform 0.1s cubic-bezier(0.4, 0, 0.2, 1)"
+            : "transform 0.2s cubic-bezier(0.34, 1.2, 0.64, 1)",
+        }}
+      >
+        {/* Wobbly fill shape */}
+        <path
+          d="M48 89 C46 87, 21 65, 12 52 C3 39, -2 28, 4 18 C9 9, 19 5, 28 5 C37 5, 44 10, 49 17 C54 10, 61 4, 71 5 C81 6, 91 12, 94 22 C98 32, 93 45, 83 58 C73 71, 52 87, 48 89Z"
+          fill="#c24b4b"
+        />
+
+        {/* First sketchy outline - doesn't close perfectly */}
+        <path
+          d="M49 17 C44 9, 36 4, 27 5 C17 6, 8 12, 5 20 C1 30, 5 42, 14 54 C24 67, 45 85, 48 88"
+          fill="none"
+          stroke="#8a3232"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+
+        {/* Second sketchy line - slightly offset, imperfect */}
+        <path
+          d="M50 18 C55 9, 63 4, 72 5 C82 7, 90 14, 93 23 C97 34, 91 47, 81 60 C71 73, 51 88, 49 89"
+          fill="none"
+          stroke="#8a3232"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+
+        {/* Extra wobbly sketch marks for that hand-drawn feel */}
+        <path
+          d="M27 7 C20 8, 12 14, 8 22"
+          fill="none"
+          stroke="#8a3232"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          opacity="0.6"
+        />
+        <path
+          d="M73 7 C80 9, 88 16, 91 25"
+          fill="none"
+          stroke="#8a3232"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          opacity="0.6"
+        />
+
+        {/* Highlight scribbles - messy, cute */}
+        <path
+          d="M22 26 Q26 21, 31 24"
+          fill="none"
+          stroke="rgba(255,200,190,0.5)"
+          strokeWidth="4"
+          strokeLinecap="round"
+        />
+        <path
+          d="M26 34 Q29 30, 33 32"
+          fill="none"
+          stroke="rgba(255,200,190,0.35)"
+          strokeWidth="3"
+          strokeLinecap="round"
+        />
+
+        {/* Tiny imperfect dots/marks */}
+        <circle cx="24" cy="42" r="1.5" fill="rgba(255,200,190,0.3)" />
+      </svg>
+    </button>
+  );
+}
+
+export default function Home() {
+  const [isRevealing, setIsRevealing] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const cardsContainerRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
+  
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const prefersReducedMotion = mounted && typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  const handleHeartClick = () => {
+    const revealDone = typeof window !== "undefined" && sessionStorage.getItem("kiki_heart_reveal_done") === "1";
+    
+    if (revealDone) {
+      router.push("/system");
+      return;
+    }
+
+    setIsRevealing(true);
+
+    const totalDuration = prefersReducedMotion ? 400 : 900;
+    const pauseDuration = prefersReducedMotion ? 100 : 150;
+    const animationDuration = prefersReducedMotion ? 300 : 650;
+
+    setTimeout(() => {
+      if (cardsContainerRef.current) {
+        cardsContainerRef.current.style.opacity = "0";
+        cardsContainerRef.current.style.transform = prefersReducedMotion ? "none" : "translateY(-16px)";
+        cardsContainerRef.current.style.transition = prefersReducedMotion 
+          ? "opacity 0.3s ease-out" 
+          : "opacity 0.65s ease-out, transform 0.65s ease-out";
+      }
+
+      setTimeout(() => {
+        if (typeof window !== "undefined") {
+          sessionStorage.setItem("kiki_heart_reveal_done", "1");
+        }
+        router.push("/system");
+      }, animationDuration);
+    }, pauseDuration);
+  };
+
+  return (
+    <div className="flex min-h-screen justify-center p-8" style={{ backgroundColor: "rgb(249, 248, 244)" }}>
+      <div className="relative w-full max-w-[1200px]" style={{ backgroundColor: "rgb(249, 248, 244)" }}>
+        <div
+          ref={cardsContainerRef}
+          className="relative"
+          style={{
+            opacity: 1,
+            transform: "none",
+            transition: "none",
+          }}
+        >
+          <Image
+            src="/home.png"
+            alt="Main Wireframe"
+            width={1200}
+            height={2000}
+            priority
+            className="w-full h-auto block"
+          />
+          {!isRevealing && <HeartAffordance onClick={handleHeartClick} />}
+        </div>
       </div>
     </div>
   );
