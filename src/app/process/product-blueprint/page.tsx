@@ -34,15 +34,15 @@ export default function ProductBlueprintPage() {
               <span className="font-semibold text-neutral-900">Objective:</span>{" "}
               Turn messy thinking into a single, opinionated product shape that a designer could immediately wireframe without follow-up questions.
             </p>
-            <p>
-              <span className="font-semibold text-neutral-900">Prompt Used:</span>{" "}
-              "Senior product designer / UX systems architect" prompt.
-            </p>
+              <p>
+                <span className="font-semibold text-neutral-900">Prompt Used:</span>{" "}
+                &quot;Senior product designer / UX systems architect&quot; prompt.
+              </p>
           </div>
           <div className="space-y-3">
             <p>I took the raw audio chat transcript and asked Claude to collapse it into a clear product structure.</p>
             <p>Not to improve the ideas, but to identify recurring themes, surface implied steps, and name what was actually happening.</p>
-            <p>The instruction was simple: be decisive, don't invent features, prefer clarity over completeness.</p>
+              <p>The instruction was simple: be decisive, don&apos;t invent features, prefer clarity over completeness.</p>
             <p>This step turns intuition into something inspectable.</p>
           </div>
         </div>

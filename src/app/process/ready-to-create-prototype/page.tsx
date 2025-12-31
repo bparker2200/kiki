@@ -42,7 +42,7 @@ export default function ReadyToCreatePrototypePage() {
             </div>
             <div className="space-y-3">
               <p>At this point, the user journey is understandable, the system is legible end-to-end, and the intent behind each step is clear.</p>
-              <p>A prototype could be created now. I didn't do that on purpose.</p>
+              <p>A prototype could be created now. I didn&apos;t do that on purpose.</p>
               <p>The goal of this work was clarity, not execution. Once clarity exists, building is straightforward.</p>
             </div>
           </div>

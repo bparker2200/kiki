@@ -37,13 +37,13 @@ export default function AudioSummaryPage() {
               </p>
               <p>
                 <span className="font-semibold text-neutral-900">Prompt Used:</span>{" "}
-                None. Paste, then click "Audio Summary."
+                None. Paste, then click &quot;Audio Summary.&quot;
               </p>
             </div>
             <div className="space-y-3">
-              <p>I pasted the same raw chat into NotebookLM and clicked "Audio Summary."</p>
+              <p>I pasted the same raw chat into NotebookLM and clicked &quot;Audio Summary.&quot;</p>
               <p>It generated a conversational audio recap that sounds like a short podcast episode. This took about 30 seconds.</p>
-              <p>This is a shortcut for reflection. Hearing the ideas spoken back reveals what matters and what doesn't.</p>
+              <p>This is a shortcut for reflection. Hearing the ideas spoken back reveals what matters and what doesn&apos;t.</p>
             </div>
           </div>
 

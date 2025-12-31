@@ -43,7 +43,7 @@ export default function GrokBrainstormPage() {
             <div className="space-y-3">
               <p>On the drive home, I opened the Grok app, set it to voice mode, and talked out loud for about 45 minutes.</p>
               <p>There was no structure. No requirements. No screens.</p>
-              <p>I used it the same way I'd use a thinking partner in the car: fast, messy, exploratory. The goal wasn't answers, it was momentum.</p>
+              <p>I used it the same way I&apos;d use a thinking partner in the car: fast, messy, exploratory. The goal wasn&apos;t answers, it was momentum.</p>
               <p>This is where most of the real thinking happened.</p>
             </div>
           </div>

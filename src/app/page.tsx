@@ -1,9 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef, useMemo } from "react";
 import { useRouter } from "next/navigation";
-import { STATES } from "@/data/states";
 
 /**
  * Narrative affordance for the home page.
@@ -11,14 +10,11 @@ import { STATES } from "@/data/states";
  */
 function HeartAffordance({ onClick }: { onClick: () => void }) {
   const [isPressed, setIsPressed] = useState(false);
-  const [mounted, setMounted] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
-  useEffect(() => {
-    setMounted(true);
+  const prefersReducedMotion = useMemo(() => {
+    return typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   }, []);
-
-  const prefersReducedMotion = mounted && typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   const handleMouseDown = () => {
     setIsPressed(true);
@@ -179,15 +175,12 @@ function HeartAffordance({ onClick }: { onClick: () => void }) {
 
 export default function Home() {
   const [isRevealing, setIsRevealing] = useState(false);
-  const [mounted, setMounted] = useState(false);
   const cardsContainerRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
-  
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
-  const prefersReducedMotion = mounted && typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const prefersReducedMotion = useMemo(() => {
+    return typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  }, []);
 
   const handleHeartClick = () => {
     const revealDone = typeof window !== "undefined" && sessionStorage.getItem("kiki_heart_reveal_done") === "1";
@@ -199,7 +192,6 @@ export default function Home() {
 
     setIsRevealing(true);
 
-    const totalDuration = prefersReducedMotion ? 400 : 900;
     const pauseDuration = prefersReducedMotion ? 100 : 150;
     const animationDuration = prefersReducedMotion ? 300 : 650;
 

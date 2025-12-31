@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Suspense } from "react";
 import { STATES } from "@/data/states";
 import StatesFocusHandler from "./StatesFocusHandler";
 
@@ -37,7 +38,9 @@ export default function SystemPage() {
           </Link>
         ))}
         <div id="states" className="absolute inset-0 pointer-events-none" />
-        <StatesFocusHandler />
+        <Suspense fallback={null}>
+          <StatesFocusHandler />
+        </Suspense>
       </div>
     </div>
   );
