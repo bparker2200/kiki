@@ -1,76 +1,60 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname, useSearchParams } from "next/navigation";
-import { STATES } from "@/data/states";
+import { usePathname } from "next/navigation";
 
-const PRIMARY_NAV = [
-  { label: "System Overview", href: "/system" },
-  { label: "Experience States", href: "/system?focus=states#states" },
-  { label: "Sequence", href: "/sequence" },
-  { label: "Process Artifacts", href: "/process" },
-  { label: "Audio Reflection", href: "/audio" },
-  { label: "Open Questions", href: "/next-steps" },
+const PRODUCT_NAV = [
+  { label: "Overview", href: "/system" },
+  { label: "Recipient Journey", href: "/sequence" },
+  { label: "Sender Journey", href: "/journey/sender" },
+  { label: "Design Principles", href: "/design-principles" },
 ];
 
+const BEHIND_SCENES_NAV = [
+  { label: "How I built this", href: "/process/whiteboard-wireframes" },
+  { label: "Audio", href: "/audio" },
+];
 
 export default function Sidebar() {
   const pathname = usePathname();
-  const searchParams = useSearchParams();
-  const focus = searchParams.get("focus");
-  const isStatePage = pathname.startsWith("/state/");
-  const currentSlug = isStatePage ? pathname.split("/state/")[1] : null;
+
+  const isActive = (href: string) => {
+    return pathname === href || pathname.startsWith(href);
+  };
 
   return (
     <aside className="fixed left-0 top-0 h-full w-[320px] border-r border-neutral-200 bg-neutral-100 p-6 overflow-y-auto">
       <nav className="flex flex-col gap-1">
-        {PRIMARY_NAV.map((item) => {
-          let isActive = false;
-          if (item.href === "/system") {
-            isActive = pathname === "/system" && focus !== "states";
-          } else if (item.href.includes("focus=states")) {
-            isActive = pathname === "/system" && focus === "states";
-          } else {
-            isActive = pathname === item.href;
-          }
-          return (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={`block px-3 py-2 text-sm transition-colors hover:bg-neutral-200 ${
-                isActive ? "bg-neutral-200 font-medium" : ""
-              }`}
-            >
-              {item.label}
-            </Link>
-          );
-        })}
+        <h2 className="px-3 pt-2 pb-1 text-xs font-semibold uppercase tracking-wide text-neutral-500 mt-4">
+          LOVEABOUT
+        </h2>
+        {PRODUCT_NAV.map((item) => (
+          <Link
+            key={item.href}
+            href={item.href}
+            className={`block px-3 py-2 text-sm transition-colors hover:bg-neutral-200 ${
+              isActive(item.href) ? "bg-neutral-200 font-medium" : ""
+            }`}
+          >
+            {item.label}
+          </Link>
+        ))}
+        
+        <h2 className="px-3 pt-2 pb-1 text-xs font-semibold uppercase tracking-wide text-neutral-500 mt-6">
+          Behind the scenes
+        </h2>
+        {BEHIND_SCENES_NAV.map((item) => (
+          <Link
+            key={item.href}
+            href={item.href}
+            className={`block px-3 py-2 text-sm transition-colors hover:bg-neutral-200 ${
+              isActive(item.href) ? "bg-neutral-200 font-medium" : ""
+            }`}
+          >
+            {item.label}
+          </Link>
+        ))}
       </nav>
-
-
-      {isStatePage && (
-        <div className="mt-8">
-          <h2 className="px-3 pb-2 text-xs font-semibold uppercase tracking-wide text-neutral-500">
-            User Experience States
-          </h2>
-          <nav className="flex flex-col gap-1">
-            {STATES.map((state) => {
-              const isActive = currentSlug === state.slug;
-              return (
-                <Link
-                  key={state.slug}
-                  href={`/state/${state.slug}`}
-                  className={`block px-3 py-2 text-sm transition-colors hover:bg-yellow-100 ${
-                    isActive ? "bg-yellow-200 font-medium" : ""
-                  }`}
-                >
-                  {state.label}
-                </Link>
-              );
-            })}
-          </nav>
-        </div>
-      )}
     </aside>
   );
 }
