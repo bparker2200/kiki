@@ -35,31 +35,25 @@ export default function ProcessLayout({
   return (
     <div className="min-h-screen bg-[rgb(249,248,244)] px-8 py-8">
       <div className="mx-auto w-full max-w-[1100px] space-y-6">
-        <div className="rounded-md border border-neutral-200 bg-white px-3 py-2">
-          <nav aria-label="breadcrumb" className="text-sm text-neutral-500">
-            <ol className="flex items-center gap-1">
-              <li>
-                <Link href="/system" className="hover:text-neutral-700">
-                  LOVEABOUT
-                </Link>
+        <nav aria-label="breadcrumb" className="rounded-md border border-neutral-200 bg-white px-3 py-2">
+          <ol className="flex items-center gap-1 text-sm text-neutral-500">
+            <li>
+              <Link href="/system" className="hover:text-neutral-700">
+                LOVEABOUT
+              </Link>
+            </li>
+            <li className="before:content-['/'] before:mx-2 before:text-neutral-300">
+              <Link href="/process" className="hover:text-neutral-700">
+                How I Built This
+              </Link>
+            </li>
+            {currentSegment !== "process" && (
+              <li className="before:content-['/'] before:mx-2 before:text-neutral-300">
+                <span className="text-neutral-700">{currentPageLabel}</span>
               </li>
-              <li className="text-neutral-400">/</li>
-              <li>
-                <Link href="/process" className="hover:text-neutral-700">
-                  How I Built This
-                </Link>
-              </li>
-              {currentSegment !== "process" && (
-                <>
-                  <li className="text-neutral-400">/</li>
-                  <li>
-                    <span className="text-neutral-600">{currentPageLabel}</span>
-                  </li>
-                </>
-              )}
-            </ol>
-          </nav>
-        </div>
+            )}
+          </ol>
+        </nav>
         {children}
       </div>
     </div>
