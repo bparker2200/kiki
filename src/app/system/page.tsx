@@ -1,4 +1,5 @@
 import Image from "next/image";
+import TieAudioPlayer from "@/components/TieAudioPlayer";
 
 export default function SystemPage() {
   return (
@@ -47,6 +48,19 @@ export default function SystemPage() {
             <li><strong>No engagement loops.</strong> No likes, no comments, no feed. The recipient&apos;s only job is to feel it.</li>
             <li><strong>The UI disappears.</strong> Pacing, silence, and restraint do the work.</li>
           </ul>
+        </div>
+
+        <hr className="border-neutral-200" />
+
+        {/* Audio section */}
+        <div className="space-y-4">
+          <h2 className="text-xl font-medium text-neutral-800">Hear the Thinking</h2>
+          <p className="text-neutral-600">
+            An 11-minute walkthrough of the emotional architecture — the pacing, the silence, and why every design choice exists.
+          </p>
+          <div className="flex justify-center py-4">
+            <TieAudioPlayer />
+          </div>
         </div>
 
       </div>
