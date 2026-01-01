@@ -6,22 +6,22 @@ import { SENDER_MATRIX } from "@/data/overviewSenderMatrix";
 export default function SystemPage() {
   return (
     <div className="min-h-screen p-8" style={{ backgroundColor: "rgb(249, 248, 244)" }}>
-      <div className="mx-auto w-full max-w-[1200px] space-y-12 overflow-x-hidden">
-        <div className="w-full max-w-[600px]">
+      <div className="mx-auto w-full max-w-[1200px] overflow-x-hidden">
+        <div className="w-full max-w-[280px] mb-10">
           <Image
             src="/overview/overview-warm.png"
             alt="Overview"
-            width={1200}
-            height={800}
+            width={560}
+            height={373}
             priority
             className="w-full h-auto block"
           />
         </div>
-        
+
         <OverviewMatrix title="Recipient" rows={RECIPIENT_MATRIX} />
-        
-        <div className="border-t border-neutral-200 py-8"></div>
-        
+
+        <div className="my-12 border-t border-neutral-300"></div>
+
         <OverviewMatrix title="Sender" rows={SENDER_MATRIX} />
       </div>
     </div>
