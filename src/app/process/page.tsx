@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
 
 export default function ProcessPage() {
-  redirect("/process/whiteboard-wireframes");
+  redirect("/process/grok-brainstorm");
 }
