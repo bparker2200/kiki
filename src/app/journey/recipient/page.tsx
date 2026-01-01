@@ -1,12 +1,12 @@
 import Image from "next/image";
 
-export default function SequencePage() {
+export default function SenderPage() {
   return (
     <div className="min-h-screen p-8" style={{ backgroundColor: "rgb(249, 248, 244)" }}>
       <div className="mx-auto w-full max-w-[1200px] overflow-x-hidden">
         <Image
-          src="/journey/sender-journey.png"
-          alt="Sender journey"
+          src="/journey/recipient-journey.png"
+          alt="Recipient journey"
           width={1200}
           height={800}
           className="block w-full h-auto"

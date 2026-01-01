@@ -4,15 +4,16 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const PRODUCT_NAV = [
-  { label: "Sender Journey", href: "/sequence" },
-  { label: "Recipient Journey", href: "/journey/sender" },
   { label: "Overview", href: "/system" },
-  { label: "Design Principles", href: "/design-principles" },
+  { label: "Sender Journey", href: "/journey/sender" },
+  { label: "Recipient Journey", href: "/journey/recipient" },
 ];
 
-const BEHIND_SCENES_NAV = [
-  { label: "How I built this", href: "/process/grok-brainstorm" },
-  { label: "Audio", href: "/audio" },
+const PROCESS_NAV = [
+  { label: "1. Voice Brainstorm (Grok)", href: "/process/grok-brainstorm" },
+  { label: "2. Structure (Claude)", href: "/process/product-blueprint" },
+  { label: "3. Sketches (ChatGPT)", href: "/process/whiteboard-wireframes" },
+  { label: "4. Audio Recap (NotebookLM)", href: "/process/audio-summary" },
 ];
 
 export default function Sidebar() {
@@ -41,9 +42,9 @@ export default function Sidebar() {
         ))}
         
         <h2 className="px-3 pt-2 pb-1 text-xs font-semibold uppercase tracking-wide text-neutral-500 mt-6">
-          Behind the scenes
+          How I Built This (For Ben)
         </h2>
-        {BEHIND_SCENES_NAV.map((item) => (
+        {PROCESS_NAV.map((item) => (
           <Link
             key={item.href}
             href={item.href}
