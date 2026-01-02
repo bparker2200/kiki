@@ -60,7 +60,7 @@ export default function ListenPage() {
       </div>
 
       {/* Heart button */}
-      <div className="w-full flex justify-center -mt-4 mb-4">
+      <div className="w-full flex justify-center -mt-16 mb-4">
         <button
           onClick={handleHeartClick}
           className="w-[61px] h-[66px] focus:outline-none transition-transform active:scale-95"
