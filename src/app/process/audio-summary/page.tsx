@@ -1,5 +1,3 @@
-import TieAudioPlayer from "@/components/TieAudioPlayer";
-
 export default function AudioSummaryPage() {
   return (
     <div className="space-y-8">
@@ -25,9 +23,19 @@ export default function AudioSummaryPage() {
         </p>
       </div>
 
-      <div className="flex justify-center">
-        <TieAudioPlayer />
-      </div>
+      <img
+        src="/process/gif-notebooklm-audio.gif"
+        alt="NotebookLM audio demo"
+        className="w-full rounded-md border border-neutral-200"
+      />
+
+      <audio
+        controls
+        className="w-full max-w-md"
+        src="/process/notebooklm-podcast.mp3"
+      >
+        Your browser does not support audio.
+      </audio>
     </div>
   );
 }

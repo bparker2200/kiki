@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 export default function GrokBrainstormPage() {
   return (
     <div className="space-y-8">
@@ -15,16 +13,11 @@ export default function GrokBrainstormPage() {
         </ul>
       </div>
 
-      <div className="rounded-md border border-neutral-200 bg-white/60 p-3">
-        <Image
-          src="/process/grok-chat.png"
-          alt="Grok chat artifact"
-          width={1400}
-          height={900}
-          className="h-auto w-full"
-          priority
-        />
-      </div>
+      <img
+        src="/process/gif-grok-brainstorm.gif"
+        alt="Grok voice brainstorm demo"
+        className="w-full rounded-md border border-neutral-200"
+      />
     </div>
   );
 }

@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 export default function ProductBlueprintPage() {
   return (
     <div className="space-y-10 text-neutral-700">
@@ -29,16 +27,14 @@ export default function ProductBlueprintPage() {
         </div>
       </div>
 
-      <div className="rounded-md border border-neutral-200 bg-white/60 p-3">
-        <Image
-          src="/process/ai-summary.png"
-          alt="AI summary artifact"
-          width={1400}
-          height={900}
-          className="h-auto w-full"
-          priority
-        />
-      </div>
+      <video
+        src="/process/gif-claude-structure.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="w-full rounded-md border border-neutral-200"
+      />
     </div>
   );
 }

@@ -1,22 +1,14 @@
-import Image from "next/image";
-import TieAudioPlayer from "@/components/TieAudioPlayer";
-
 export default function SystemPage() {
   return (
     <div className="min-h-screen p-8" style={{ backgroundColor: "rgb(249, 248, 244)" }}>
       <div className="mx-auto w-full max-w-[800px] space-y-8">
 
         {/* Hero image */}
-        <div className="w-full max-w-[600px]">
-          <Image
-            src="/overview/overview-warm.png"
-            alt="LOVEABOUT overview"
-            width={600}
-            height={200}
-            className="w-full h-auto"
-            priority
-          />
-        </div>
+        <img
+          src="/overview/overview-warm.png"
+          alt="LOVEABOUT overview"
+          className="w-full max-w-[280px] h-auto"
+        />
 
         {/* Title + hook */}
         <div className="space-y-4">
@@ -58,9 +50,13 @@ export default function SystemPage() {
           <p className="text-neutral-600">
             An 11-minute walkthrough of the emotional architecture — the pacing, the silence, and why every design choice exists.
           </p>
-          <div className="flex justify-center py-4">
-            <TieAudioPlayer />
-          </div>
+          <audio
+            controls
+            className="w-full max-w-md"
+            src="/process/notebooklm-podcast.mp3"
+          >
+            Your browser does not support audio.
+          </audio>
         </div>
 
       </div>

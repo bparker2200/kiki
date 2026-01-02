@@ -1,23 +1,44 @@
 import Image from "next/image";
 
-export default function SenderPage() {
+const phases = [
+  {
+    image: "/journey/s1-ask.png",
+    title: "The Ask",
+    description: "A text arrives from a friend: \"I'm putting something together for [Name]. Can you add something?\"",
+    emotion: "Willingness. \"Of course—but what do I say?\"",
+  },
+  {
+    image: "/journey/s2-blank-page.png",
+    title: "The Blank Page",
+    description: "They tap the link. They see the recipient's name. They see an empty text field.",
+    emotion: "Mild panic. \"I don't want to sound generic.\"",
+  },
+  {
+    image: "/journey/s3-finding.png",
+    title: "The Finding",
+    description: "They type a few words, or hit shuffle, or edit a suggestion. Something clicks.",
+    emotion: "Relief. \"That's actually what I mean.\"",
+  },
+  {
+    image: "/journey/s4-offering.png",
+    title: "The Offering",
+    description: "Optional: record a short video. Camera on. Face visible. Speaking out loud.",
+    emotion: "Vulnerability. \"Do I have to? ...Okay. For them.\"",
+  },
+  {
+    image: "/journey/s5-release.png",
+    title: "The Release",
+    description: "They hit send. \"You're done.\" No follow-up. No survey.",
+    emotion: "Quiet satisfaction. \"I was part of something.\"",
+  },
+];
+
+export default function SenderJourneyPage() {
   return (
     <div className="min-h-screen p-8" style={{ backgroundColor: "rgb(249, 248, 244)" }}>
-      <div className="mx-auto w-full max-w-[800px] space-y-8">
+      <div className="mx-auto w-full max-w-[900px] space-y-8">
 
-        {/* Hero image */}
-        <div className="w-full max-w-[600px]">
-          <Image
-            src="/journey/sender-journey.png"
-            alt="Sender journey phases"
-            width={600}
-            height={200}
-            className="w-full h-auto"
-            priority
-          />
-        </div>
-
-        {/* Title + hook */}
+        {/* Header */}
         <div className="space-y-4">
           <h1 className="text-3xl font-semibold text-neutral-900">Sender Journey</h1>
           <p className="text-lg text-neutral-700 leading-relaxed">
@@ -27,42 +48,38 @@ export default function SenderPage() {
 
         <hr className="border-neutral-200" />
 
-        {/* Main content section */}
-        <div className="space-y-6">
-          <h2 className="text-xl font-medium text-neutral-800">The Phases</h2>
-          <div className="space-y-6 text-neutral-700 leading-relaxed">
+        {/* Phases */}
+        <div className="space-y-10">
+          {phases.map((phase, index) => (
+            <div
+              key={phase.title}
+              className="flex gap-8 items-center"
+            >
+              {/* Image */}
+              <div className="w-[120px] h-[100px] flex-shrink-0 flex items-center justify-center">
+                <Image
+                  src={phase.image}
+                  alt={phase.title}
+                  width={120}
+                  height={100}
+                  className="max-w-full max-h-full object-contain"
+                />
+              </div>
 
-            <div>
-              <p><strong>1. The Ask</strong></p>
-              <p>A text arrives from a friend: &ldquo;I&apos;m putting something together for [Name]. Can you add something?&rdquo;</p>
-              <p className="italic text-neutral-500">Willingness. &ldquo;Of course—but what do I say?&rdquo;</p>
+              {/* Text */}
+              <div className="flex-1 space-y-2">
+                <h3 className="text-lg font-medium text-neutral-900">
+                  {index + 1}. {phase.title}
+                </h3>
+                <p className="text-neutral-700 leading-relaxed">
+                  {phase.description}
+                </p>
+                <p className="text-neutral-500 italic">
+                  {phase.emotion}
+                </p>
+              </div>
             </div>
-
-            <div>
-              <p><strong>2. The Blank Page</strong></p>
-              <p>They tap the link. They see the recipient&apos;s name. They see an empty text field.</p>
-              <p className="italic text-neutral-500">Mild panic. &ldquo;I don&apos;t want to sound generic.&rdquo;</p>
-            </div>
-
-            <div>
-              <p><strong>3. The Finding</strong></p>
-              <p>They type a few words, or hit shuffle, or edit a suggestion. Something clicks.</p>
-              <p className="italic text-neutral-500">Relief. &ldquo;That&apos;s actually what I mean.&rdquo;</p>
-            </div>
-
-            <div>
-              <p><strong>4. The Offering</strong></p>
-              <p>Optional: record a short video. Camera on. Face visible. Speaking out loud.</p>
-              <p className="italic text-neutral-500">Vulnerability. &ldquo;Do I have to? ...Okay. For them.&rdquo;</p>
-            </div>
-
-            <div>
-              <p><strong>5. The Release</strong></p>
-              <p>They hit send. &ldquo;You&apos;re done.&rdquo; No follow-up. No survey.</p>
-              <p className="italic text-neutral-500">Quiet satisfaction. &ldquo;I was part of something.&rdquo;</p>
-            </div>
-
-          </div>
+          ))}
         </div>
 
         <hr className="border-neutral-200" />
