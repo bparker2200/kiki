@@ -6,7 +6,7 @@ import Sidebar from "@/components/Sidebar";
 
 export default function ClientShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const showSidebar = pathname !== "/";
+  const showSidebar = pathname !== "/" && pathname !== "/listen";
 
   return (
     <>
