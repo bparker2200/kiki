@@ -12,22 +12,9 @@ export default function SystemPage() {
           className="w-full max-w-[280px] h-auto"
         />
 
-        {/* Title + hook */}
+        {/* What I'm Sharing */}
         <div className="space-y-4">
-          <h1 className="text-3xl font-semibold text-neutral-900">What is LOVEABOUT?</h1>
-          <p className="text-lg text-neutral-700 leading-relaxed">
-            A way to give someone the experience of being surrounded by people who love them—without needing everyone in the same room.
-          </p>
-          <p className="text-neutral-600 leading-relaxed">
-            One person organizes, friends contribute short messages, and the recipient gets a private, paced experience they can keep forever.
-          </p>
-        </div>
-
-        <hr className="border-neutral-200" />
-
-        {/* What you're about to see */}
-        <div className="space-y-4">
-          <h2 className="text-xl font-medium text-neutral-800">What You're About to See</h2>
+          <h1 className="text-3xl font-semibold text-neutral-900">What I'm Sharing</h1>
           <p className="text-neutral-700 leading-relaxed">
             This isn't a prototype. It's a walkthrough of an idea — what the experience could feel like for the person organizing it and the person receiving it.
           </p>
@@ -38,27 +25,23 @@ export default function SystemPage() {
 
         <hr className="border-neutral-200" />
 
-        {/* The core insight */}
+        {/* Design Principles */}
         <div className="space-y-4">
-          <h2 className="text-xl font-medium text-neutral-800">The Core Insight</h2>
-          <p className="text-neutral-700 leading-relaxed">
-            This isn't a card. It's not a social post. It's a ceremony — digitized.
-          </p>
-          <p className="text-neutral-700 leading-relaxed">
-            The design prioritizes emotion over features. The technology hides in plain sight.
-          </p>
-        </div>
+          <h2 className="text-xl font-medium text-neutral-800">Design Principles</h2>
+          <p className="text-sm text-neutral-500">The rules I kept coming back to while shaping this.</p>
 
-        <hr className="border-neutral-200" />
-
-        {/* Why This Works */}
-        <div className="space-y-4">
-          <h2 className="text-xl font-medium text-neutral-800">Why This Works</h2>
           <ul className="space-y-3 text-neutral-700">
-            <li><strong>No app download.</strong> Web-based. The first touchpoint is a text from a friend.</li>
-            <li><strong>Not shareable.</strong> Content can't be forwarded or posted. Scarcity is the point.</li>
-            <li><strong>No engagement loops.</strong> No likes, no comments. The recipient's only job is to feel it.</li>
-            <li><strong>The UI disappears.</strong> Pacing, silence, and restraint do the work.</li>
+            <li><strong>Relief, not a task.</strong> If it feels like homework, you've already lost.</li>
+            <li><strong>Small ask, big payoff.</strong> Tiny input from the sender, meaningful moment for the receiver.</li>
+            <li><strong>No performance, no cringe.</strong> Help people say real things in their own voice — without feeling like a dork.</li>
+            <li><strong>AI stays backstage.</strong> It's scaffolding, not the star. Output should read like the sender, not like an app.</li>
+            <li><strong>Specificity over sentimentality.</strong> "I love how you ___" beats "I love you so much" every time.</li>
+            <li><strong>Fast path to send.</strong> Anything that delays sending is the enemy.</li>
+            <li><strong>Low-stakes by design.</strong> Impossible to mess up. The app carries you if you're anxious.</li>
+            <li><strong>Respect the receiver's attention.</strong> No feed. No social layer. No "rate your experience." The moment lands, then the app gets out of the way.</li>
+            <li><strong>Warm, not cute.</strong> Thoughtful, calm, modern. Not self-care pastel, not startup dashboard, not Hallmark.</li>
+            <li><strong>Privacy is a feature.</strong> No public sharing, no contact scraping, no "invite your friends."</li>
+            <li><strong>One job, done well.</strong> Make it easier to say something true, quickly, without making it weird.</li>
           </ul>
         </div>
 
