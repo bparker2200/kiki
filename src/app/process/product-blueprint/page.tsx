@@ -23,7 +23,7 @@ export default function ProductBlueprintPage() {
           loop
           muted
           playsInline
-          className="w-full h-auto rounded-md border border-neutral-200"
+          className="w-full h-auto rounded-md"
         />
       </div>
 
