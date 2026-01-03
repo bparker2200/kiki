@@ -180,11 +180,11 @@ function TwoDoorLanding() {
       style={{ backgroundColor: "rgb(249, 248, 244)" }}
     >
       <div className="text-center mb-10">
-        <h1 className="text-3xl font-semibold text-neutral-800 mb-2">
+        <h1 className="text-3xl font-semibold text-neutral-800 mb-3">
           LOVEABOUT
         </h1>
-        <p className="text-neutral-600">
-          A gift that shows someone how much they&apos;re loved
+        <p className="text-neutral-600 max-w-md mx-auto">
+          A concept for giving someone the experience of being surrounded by people who love them. Below: the idea itself, and how I used AI tools to shape it.
         </p>
       </div>
 
@@ -194,10 +194,10 @@ function TwoDoorLanding() {
           className="flex-1 rounded-lg border border-neutral-200 bg-white px-6 py-5 text-center transition-colors hover:border-neutral-300 hover:bg-neutral-50"
         >
           <h2 className="text-lg font-medium text-neutral-800 mb-1">
-            See the Product
+            Explore the Concept
           </h2>
           <p className="text-sm text-neutral-500">
-            The concept, journeys, and emotional design
+            For Kiki — the emotional architecture and design intent
           </p>
         </Link>
 
@@ -206,10 +206,10 @@ function TwoDoorLanding() {
           className="flex-1 rounded-lg border border-neutral-200 bg-white px-6 py-5 text-center transition-colors hover:border-neutral-300 hover:bg-neutral-50"
         >
           <h2 className="text-lg font-medium text-neutral-800 mb-1">
-            See How I Built This
+            How I Built This
           </h2>
           <p className="text-sm text-neutral-500">
-            My AI workflow from idea to prototype
+            For Ben — 4 AI tools I used to go from rambling to structure
           </p>
         </Link>
       </div>
