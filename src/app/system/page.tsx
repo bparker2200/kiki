@@ -3,63 +3,119 @@ import Link from "next/link";
 export default function SystemPage() {
   return (
     <div className="min-h-screen p-8" style={{ backgroundColor: "rgb(249, 248, 244)" }}>
-      <div className="mx-auto w-full max-w-[800px] space-y-8">
+      <div className="mx-auto w-full max-w-[800px] space-y-10">
+
+        {/* The Hook */}
+        <div className="space-y-4">
+          <h1 className="text-3xl font-semibold text-neutral-900">LOVEABOUT</h1>
+          <p className="text-xl text-neutral-700 leading-relaxed">
+            Most people never tell the people they love how they feel. Not because they don't want to — because there's never a moment that makes it easy.
+          </p>
+          <p className="text-neutral-600 leading-relaxed">
+            This is that moment.
+          </p>
+        </div>
+
+        <hr className="border-neutral-200" />
 
         {/* Hero image */}
         <img
           src="/overview/overview-warm.png"
           alt="LOVEABOUT overview"
-          className="w-full max-w-[280px] h-auto"
+          className="w-full max-w-[560px] h-auto"
         />
 
-        {/* What I'm Sharing */}
+        {/* The Concept */}
         <div className="space-y-4">
-          <h1 className="text-3xl font-semibold text-neutral-900">What I'm Sharing</h1>
+          <h2 className="text-xl font-medium text-neutral-800">How It Works</h2>
           <p className="text-neutral-700 leading-relaxed">
-            This isn't a prototype. It's a walkthrough of an idea — what the experience could feel like for the person organizing it and the person receiving it.
+            One person organizes. Friends contribute short messages — text, video, or both. The recipient gets a private, paced experience: words from the people who love them, delivered one at a time, ending in silence.
           </p>
           <p className="text-neutral-700 leading-relaxed">
-            The two journeys below show the emotional arc from both sides. If you want the source material — the messy voice chat, the structured doc, and the tools I used — that's in the <Link href="/process/grok-brainstorm" className="underline hover:text-neutral-900">How I Built This</Link> section.
+            No app download. No social features. No engagement loops. Just the moment — then it gets out of the way.
           </p>
         </div>
 
         <hr className="border-neutral-200" />
 
-        {/* Design Principles */}
+        {/* The Two Journeys */}
+        <div className="space-y-4">
+          <h2 className="text-xl font-medium text-neutral-800">Two Journeys</h2>
+          <p className="text-neutral-600">
+            The experience is different depending on which side you're on.
+          </p>
+
+          <div className="grid sm:grid-cols-2 gap-4 pt-2">
+            <Link
+              href="/journey/sender"
+              className="block p-5 bg-white border border-neutral-200 rounded-lg hover:border-neutral-300 hover:bg-neutral-50 transition-colors"
+            >
+              <h3 className="font-medium text-neutral-900 mb-1">Sender Journey</h3>
+              <p className="text-sm text-neutral-500">
+                The organizer and contributors. How they give.
+              </p>
+            </Link>
+
+            <Link
+              href="/journey/recipient"
+              className="block p-5 bg-white border border-neutral-200 rounded-lg hover:border-neutral-300 hover:bg-neutral-50 transition-colors"
+            >
+              <h3 className="font-medium text-neutral-900 mb-1">Recipient Journey</h3>
+              <p className="text-sm text-neutral-500">
+                The person being celebrated. How they receive.
+              </p>
+            </Link>
+          </div>
+        </div>
+
+        <hr className="border-neutral-200" />
+
+        {/* Design Principles - Collapsible feel */}
         <div className="space-y-4">
           <h2 className="text-xl font-medium text-neutral-800">Design Principles</h2>
-          <p className="text-sm text-neutral-500">The rules I kept coming back to while shaping this.</p>
+          <p className="text-sm text-neutral-500">The rules I kept coming back to.</p>
 
-          <ul className="space-y-3 text-neutral-700">
-            <li><strong>Relief, not a task.</strong> If it feels like homework, you've already lost.</li>
-            <li><strong>Small ask, big payoff.</strong> Tiny input from the sender, meaningful moment for the receiver.</li>
-            <li><strong>No performance, no cringe.</strong> Help people say real things in their own voice — without feeling like a dork.</li>
-            <li><strong>AI stays backstage.</strong> It's scaffolding, not the star. Output should read like the sender, not like an app.</li>
-            <li><strong>Specificity over sentimentality.</strong> "I love how you ___" beats "I love you so much" every time.</li>
-            <li><strong>Fast path to send.</strong> Anything that delays sending is the enemy.</li>
-            <li><strong>Low-stakes by design.</strong> Impossible to mess up. The app carries you if you're anxious.</li>
-            <li><strong>Respect the receiver's attention.</strong> No feed. No social layer. No "rate your experience." The moment lands, then the app gets out of the way.</li>
-            <li><strong>Warm, not cute.</strong> Thoughtful, calm, modern. Not self-care pastel, not startup dashboard, not Hallmark.</li>
-            <li><strong>Privacy is a feature.</strong> No public sharing, no contact scraping, no "invite your friends."</li>
-            <li><strong>One job, done well.</strong> Make it easier to say something true, quickly, without making it weird.</li>
-          </ul>
+          <div className="grid sm:grid-cols-2 gap-x-8 gap-y-3 text-sm text-neutral-700">
+            <p><strong>Relief, not a task.</strong> If it feels like homework, you've lost.</p>
+            <p><strong>Small ask, big payoff.</strong> Tiny input, meaningful moment.</p>
+            <p><strong>No cringe.</strong> Help people say real things without feeling like a dork.</p>
+            <p><strong>AI stays backstage.</strong> Output reads like the sender, not an app.</p>
+            <p><strong>Specificity wins.</strong> "I love how you ___" beats "I love you so much."</p>
+            <p><strong>Fast path to send.</strong> Anything that delays sending is the enemy.</p>
+            <p><strong>Low-stakes by design.</strong> Impossible to mess up.</p>
+            <p><strong>Respect attention.</strong> No feed, no social layer, no surveys.</p>
+            <p><strong>Warm, not cute.</strong> Calm and modern, not Hallmark.</p>
+            <p><strong>Privacy is a feature.</strong> No public sharing, no contact scraping.</p>
+          </div>
         </div>
 
         <hr className="border-neutral-200" />
 
-        {/* Audio section */}
+        {/* Go Deeper */}
         <div className="space-y-4">
-          <h2 className="text-xl font-medium text-neutral-800">Hear the Thinking</h2>
-          <p className="text-neutral-600">
-            An 11-minute audio walkthrough of the emotional architecture. Generated by NotebookLM from my raw notes.
-          </p>
-          <audio
-            controls
-            className="w-full max-w-md"
-            src="/process/notebooklm-podcast.mp3"
-          >
-            Your browser does not support audio.
-          </audio>
+          <h2 className="text-xl font-medium text-neutral-800">Go Deeper</h2>
+
+          <div className="space-y-4">
+            <div>
+              <p className="text-neutral-600 mb-2">
+                11-minute audio walkthrough of the emotional architecture:
+              </p>
+              <audio
+                controls
+                className="w-full max-w-md"
+                src="/process/notebooklm-podcast.mp3"
+              >
+                Your browser does not support audio.
+              </audio>
+            </div>
+
+            <p className="text-neutral-600">
+              Want the source material? The messy voice chat, structured doc, and AI tools I used are in{" "}
+              <Link href="/process/grok-brainstorm" className="underline hover:text-neutral-900">
+                How I Built This
+              </Link>.
+            </p>
+          </div>
         </div>
 
       </div>
